@@ -1,7 +1,7 @@
 {
   "name": "@didi-js/lib-didi",
   "main": "./dist/lib-didi.js",
-  "version": "0.1.0",
+  "version": "0.1.0-rc1",
   "description": "lib-didi is the backend to interface with clients. this is the transpiler for JavaScript and Typescript, transforming CommonJS modules into distinct ES Modules.",
   "repository": "https://github.com/adam-cyclones/didi",
   "author": "Adam Crockett",
@@ -15,13 +15,9 @@
     "resolve-tree": "^0.1.14",
     "xstate": "^4.11.0"
   },
-  "devDependencies": {
-    "typedoc": "^0.17.8",
-    "@types/node": "^14.0.13"
-  },
-  "scripts": {
-    "build": "./node_modules/typescript/bin/tsc -p ./src && cp ./package.json ../../release/didi-lib && rm -rf ../../release/didi-lib/dist && mv -f ../../release/didi-lib/src ../../release/didi-lib/dist",
-    "bump": "yarn version $(node ../didi-devops/scripts/version-bump-by-label.js)",
-    "prepublishOnly": "yarn build && cd ../../release/didi-lib && git checkout master && git add . && git commit -m 'automated release commit for version ${npm_package_version}'"
+  "homepage": "https://github.com/adam-cyclones/didi",
+  "publishConfig": {
+    "access": "public",
+    "tag": "next"
   }
 }
